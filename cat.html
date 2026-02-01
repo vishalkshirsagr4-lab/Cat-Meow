@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+        .container{
+            display: flex;
+            flex-direction:column ;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+            gap: 1rem;
+        }
+        .box-img {
+            display: flex;
+            flex-direction: column;
+        }
+        button {
+            margin: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box-img">
+            <img id="bulbid" height="220px" width="200px" src="https://i.pinimg.com/736x/4b/08/11/4b0811d79ac2d500624d68168e46dca4.jpg" alt="bulb img">
+            <img id="catid" height="200px" width="200px" src="https://i.pinimg.com/originals/6f/b2/d7/6fb2d7e574f85ab02ef9420b4e387552.gif" alt="cat img">
+        </div>
+        <div class="btns">
+            <button onclick="Switchon()"
+                 style="background-color: red; color: white; padding: 12px; border: none; border-radius: 10px; font-size: 1.2rem;"
+                >Switch On</button>
+            <button onclick="Switchoff()"
+            style="background-color: rgb(0, 255, 98); color: white; padding: 12px; border: none; border-radius: 10px; font-size: 1.2rem;"
+             >Switch off</button>
+        </div>
+        <div id="para" style="color: rgb(3, 135, 250); font-size: 1.3rem; height: 2rem;" >
+
+        </div>
+    </div>
+    <script>
+        let bulb=document.getElementById("bulbid");
+        let cat=document.getElementById("catid");
+        let para=document.getElementById('para');
+        let paratext='Meow Meow Meow Meow Meowwwww';
+        function Switchon() {
+            bulb.src="https://i.pinimg.com/736x/f8/44/c8/f844c8b705d2beca2911542cf33598b4.jpg";
+            cat.src="https://i.pinimg.com/originals/3e/92/6b/3e926b54887126f30107695162fae98c.gif";
+        }
+        function Switchoff() {
+            bulb.src="https://i.pinimg.com/736x/4b/08/11/4b0811d79ac2d500624d68168e46dca4.jpg";
+            cat.src="https://i.pinimg.com/originals/6f/b2/d7/6fb2d7e574f85ab02ef9420b4e387552.gif";
+        }
+        let i=0;
+        function display() {
+            if(i>=paratext.length) {
+                para.textContent='';
+                i=0;
+            } else {
+                para.textContent += paratext[i];
+                i++;
+            }
+        }
+        setInterval(()=>{
+            display();
+        },200);
+    </script>
+</body>
+</html>
